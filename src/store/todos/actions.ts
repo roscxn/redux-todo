@@ -21,3 +21,4 @@ export function setTodoCompleted(todoId: number, isCompleted: boolean) {
     isCompleted,
   };
 }
+

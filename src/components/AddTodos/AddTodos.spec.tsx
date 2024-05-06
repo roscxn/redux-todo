@@ -2,10 +2,14 @@ import { render, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import AddTodos from './AddTodos';
 import store from '../../store';
+import { addTodo } from '../../store/todos/actions';
 
 describe('AddTodos', () => {
-  it('Render input textbox', () => {
-    const { getByPlaceholderText } = render(
+  it('Should add a new todo when submit button is called', () => {
+    
+    const mockedDispatch = jest.spyOn(store, 'dispatch');
+
+    const { getByPlaceholderText, getByText } = render(
       <Provider store={store}>
         <AddTodos />
       </Provider>
@@ -20,19 +24,17 @@ describe('AddTodos', () => {
     ) as HTMLInputElement;
 
     expect(inputElement.value).toBe('Buy Groceries');
-  });
 
-  it('Should call onClick handler when button is clicked', () => {
-    const mockedOnClick = jest.fn();
-
-    const { getByText } = render(
-      <Provider store={store}>
-        <AddTodos />
-      </Provider>
-    );
     const submitButton = getByText('+');
+
     fireEvent.click(submitButton);
 
-    expect(mockedOnClick).toHaveBeenCalled();
+    expect(mockedDispatch).toHaveBeenCalledWith(
+      addTodo({
+        id: expect.any(Number),
+        task: 'Buy Groceries',
+        completed: false,
+      })
+    );
   });
 });

@@ -6,7 +6,7 @@ export const TextBox = styled.input`
   padding: 0 10px;
   border-radius: 3px;
   border: 1px solid #ccc;
-  width: 404px;
+  width: 400px;
 
   @media only screen and (max-width: 600px) {
     width: 68%;
