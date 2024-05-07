@@ -8,6 +8,7 @@ function App() {
       <ToDoContainerBackground>
         <h1>Todo App</h1>
         <AddTodos />
+        <br/>
         <DisplayTodos />
       </ToDoContainerBackground>
     </WebTheme>
