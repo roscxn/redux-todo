@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { Todo } from '../../store/todos/types';
@@ -10,29 +10,36 @@ import { TextBox } from '../AddTodos/AddTodos.style';
 import { ButtonClearSearch } from './DisplayTodos.style';
 
 const DisplayTodos = () => {
+
   const todos = useSelector((state: RootState) => state.todos);
 
   const [searchTodo, setSearchTodo] = useState('');
 
   const [filteredTodos, setFilteredTodos] = useState<Todo[]>(todos.todos);
 
-  // Debounce the setSearchTodo function
-  const debouncedSetSearchTodo = debounce((value: string) => {
+  useEffect(() => {
+    // Update filteredTodos whenever todos change
+    setFilteredTodos(todos.todos.filter(todo =>
+      todo.task.toLowerCase().includes(searchTodo.toLowerCase())
+    ));
+  }, [todos.todos]);
+
+  const debouncedSearch = debounce((value: string) => {
     const filtered = todos.todos.filter((todo) =>
       todo.task.toLowerCase().includes(value.toLowerCase())
     );
     setFilteredTodos(value.length >= 3 ? filtered : todos.todos);
-  }, 300);
+  }, 500);
 
-  // Event handler for input change
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setSearchTodo(value);
-    debouncedSetSearchTodo(value); 
+    debouncedSearch(value);  
   };
 
   const clearSearch = () => {
-    setSearchTodo('');
+    setSearchTodo("");
+    setFilteredTodos(todos.todos);
   };
 
   return (
