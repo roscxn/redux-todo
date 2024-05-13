@@ -45,15 +45,5 @@
     "ts-jest": "^29.1.2",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
-  },
-  "lint-staged": {
-    "*.{js,jsx,json,css,scss,md,ts,tsx}": [
-      "prettier --write"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }

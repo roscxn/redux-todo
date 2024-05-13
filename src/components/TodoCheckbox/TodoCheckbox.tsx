@@ -1,23 +1,23 @@
-import { useDispatch } from "react-redux";
-import { CheckboxInput } from "./TodoCheckbox.style";
-import { setTodoCompleted } from "../../store/todos/actions";
+import { useDispatch } from "react-redux"
+import { CheckboxInput } from "./TodoCheckbox.style"
+import { setTodoCompleted } from "../../store/todos/actions"
 
 const TodoCheckbox = ({
   todoId,
   isCompleted,
 }: {
-  todoId: number;
-  isCompleted: boolean;
+  todoId: number
+  isCompleted: boolean
 }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const handleChangeCheckBox = () => {
     try {
-      dispatch(setTodoCompleted(todoId, !isCompleted));
+      dispatch(setTodoCompleted(todoId, !isCompleted))
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error:", error)
     }
-  };
+  }
 
   return (
     <CheckboxInput
@@ -25,7 +25,7 @@ const TodoCheckbox = ({
       onChange={handleChangeCheckBox}
       checked={isCompleted}
     />
-  );
-};
+  )
+}
 
-export default TodoCheckbox;
+export default TodoCheckbox
