@@ -10,7 +10,7 @@
     "lint:fix": "eslint --fix .",
     "preview": "vite preview",
     "test": "jest",
-    "prepare": "husky"
+    "prepare": "husky || true"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
@@ -45,5 +45,16 @@
     "ts-jest": "^29.1.2",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,json,css,scss,md}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
