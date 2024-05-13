@@ -4,8 +4,8 @@ const Test = () => {
   return (
     <>
       <div>
-        <h1>test 2</h1>
-        <h2>test 34</h2>
+        <h1>test 245</h1>
+        <h2>test 3456</h2>
       </div>
     </>
   );
