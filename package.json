@@ -48,8 +48,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,json,css,scss,md,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix"
+      "prettier --write"
     ]
   },
   "husky": {

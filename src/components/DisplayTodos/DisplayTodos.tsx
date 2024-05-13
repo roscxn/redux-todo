@@ -1,54 +1,54 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
-import { Todo } from '../../store/todos/types';
-import { debounce } from 'lodash';
-import TodoCheckbox from '../TodoCheckbox/TodoCheckbox';
-import DeleteTodos from '../DeleteTodos/DeleteTodos';
-import { DisplayTodoBox, LineThroughText } from './DisplayTodos.style';
-import { TextBox } from '../AddTodos/AddTodos.style';
-import { ButtonClearSearch } from './DisplayTodos.style';
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store'
+import { Todo } from '../../store/todos/types'
+import { debounce } from 'lodash'
+import TodoCheckbox from '../TodoCheckbox/TodoCheckbox'
+import DeleteTodos from '../DeleteTodos/DeleteTodos'
+import { DisplayTodoBox, LineThroughText } from './DisplayTodos.style'
+import { TextBox } from '../AddTodos/AddTodos.style'
+import { ButtonClearSearch } from './DisplayTodos.style'
 
 const DisplayTodos = () => {
-  const todos = useSelector((state: RootState) => state.todos);
+  const todos = useSelector((state: RootState) => state.todos)
 
-  const [searchTodo, setSearchTodo] = useState('');
+  const [searchTodo, setSearchTodo] = useState('')
 
-  const [filteredTodos, setFilteredTodos] = useState<Todo[]>(todos.todos);
+  const [filteredTodos, setFilteredTodos] = useState<Todo[]>(todos.todos)
 
   useEffect(() => {
     // Update filteredTodos whenever todos change
     setFilteredTodos(
       todos.todos.filter((todo) =>
-        todo.task.toLowerCase().includes(searchTodo.toLowerCase())
-      )
-    );
-  }, [todos.todos]);
+        todo.task.toLowerCase().includes(searchTodo.toLowerCase()),
+      ),
+    )
+  }, [todos.todos])
 
   const debouncedSearch = debounce((value: string) => {
     const filtered = todos.todos.filter((todo) =>
-      todo.task.toLowerCase().includes(value.toLowerCase())
-    );
-    setFilteredTodos(value.length >= 3 ? filtered : todos.todos);
-  }, 500);
+      todo.task.toLowerCase().includes(value.toLowerCase()),
+    )
+    setFilteredTodos(value.length >= 3 ? filtered : todos.todos)
+  }, 500)
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    setSearchTodo(value);
-    debouncedSearch(value);
-  };
+    const { value } = event.target
+    setSearchTodo(value)
+    debouncedSearch(value)
+  }
 
   const clearSearch = () => {
-    setSearchTodo('');
-    setFilteredTodos(todos.todos);
-  };
+    setSearchTodo('')
+    setFilteredTodos(todos.todos)
+  }
 
   return (
     <div>
       <TextBox
-        type='text'
-        name='searchTodo'
-        placeholder='Search todo'
+        type="text"
+        name="searchTodo"
+        placeholder="Search todo"
         onChange={handleSearchChange}
         value={searchTodo}
         minLength={3}
@@ -70,7 +70,7 @@ const DisplayTodos = () => {
         ))
       )}
     </div>
-  );
-};
+  )
+}
 
-export default DisplayTodos;
+export default DisplayTodos
