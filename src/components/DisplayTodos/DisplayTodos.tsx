@@ -10,7 +10,6 @@ import { TextBox } from '../AddTodos/AddTodos.style';
 import { ButtonClearSearch } from './DisplayTodos.style';
 
 const DisplayTodos = () => {
-
   const todos = useSelector((state: RootState) => state.todos);
 
   const [searchTodo, setSearchTodo] = useState('');
@@ -19,9 +18,11 @@ const DisplayTodos = () => {
 
   useEffect(() => {
     // Update filteredTodos whenever todos change
-    setFilteredTodos(todos.todos.filter(todo =>
-      todo.task.toLowerCase().includes(searchTodo.toLowerCase())
-    ));
+    setFilteredTodos(
+      todos.todos.filter((todo) =>
+        todo.task.toLowerCase().includes(searchTodo.toLowerCase())
+      )
+    );
   }, [todos.todos]);
 
   const debouncedSearch = debounce((value: string) => {
@@ -34,11 +35,11 @@ const DisplayTodos = () => {
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setSearchTodo(value);
-    debouncedSearch(value);  
+    debouncedSearch(value);
   };
 
   const clearSearch = () => {
-    setSearchTodo("");
+    setSearchTodo('');
     setFilteredTodos(todos.todos);
   };
 
