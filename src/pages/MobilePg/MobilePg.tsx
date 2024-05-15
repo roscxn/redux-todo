@@ -18,6 +18,7 @@ const MobilePg = () => {
   return (
     <ThemeProvider theme={theme}>
       <MenuAppBar />
+      <h2>test</h2>
       <BottomNav />
     </ThemeProvider>
   )
