@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const TextBox = styled.input`
   height: 47px;
@@ -18,7 +18,7 @@ export const TextBox = styled.input`
     margin-top: 25px;
     font-size: 15px;
   }
-`;
+`
 
 export const ButtonSubmitTask = styled.button`
   background-color: #8d4be4;
@@ -34,7 +34,7 @@ export const ButtonSubmitTask = styled.button`
     width: 15%;
     font-size: 16px;
   }
-`;
+`
 
 export const SuccessSubmitMessage = styled.div`
   font-size: 14px;
@@ -45,7 +45,7 @@ export const SuccessSubmitMessage = styled.div`
   @media only screen and (max-width: 600px) {
     font-size: 10px;
   }
-`;
+`
 
 export const ErrorSubmitMessage = styled.div`
   font-size: 14px;
@@ -56,4 +56,4 @@ export const ErrorSubmitMessage = styled.div`
   @media only screen and (max-width: 600px) {
     font-size: 10px;
   }
-`;
+`

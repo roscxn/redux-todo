@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const DisplayTodoBox = styled.div`
   display: flex;
@@ -14,14 +14,14 @@ export const DisplayTodoBox = styled.div`
     margin-top: 25px;
     font-size: 14px;
   }
-`;
+`
 
 export const LineThroughText = styled.span`
   text-decoration: line-through;
-`;
+`
 
 export const ButtonClearSearch = styled.button`
-  background-color: #A4A4A4;
+  background-color: #a4a4a4;
   color: #ffffff;
   width: 50px;
   height: 50px;
@@ -34,4 +34,4 @@ export const ButtonClearSearch = styled.button`
     width: 15%;
     font-size: 12px;
   }
-`;
+`

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components"
 
 export const WebTheme = styled.div`
   background: linear-gradient(#64d8d1, #4e8fe3);
@@ -6,7 +6,7 @@ export const WebTheme = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Helvetica', sans-serif;
+  font-family: "Helvetica", sans-serif;
   color: #000000;
   letter-spacing: 0.2px;
 
@@ -14,7 +14,7 @@ export const WebTheme = styled.div`
     max-height: 100vh;
     font-size: 10px;
   }
-`;
+`
 
 export const ToDoContainerBackground = styled.div`
   background-color: #ffffff;
@@ -28,4 +28,4 @@ export const ToDoContainerBackground = styled.div`
     width: 70%;
     padding: 20px;
   }
-`;
+`

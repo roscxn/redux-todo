@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../store'
-import { Todo } from '../../store/todos/types'
-import { debounce } from 'lodash'
-import TodoCheckbox from '../TodoCheckbox/TodoCheckbox'
-import DeleteTodos from '../DeleteTodos/DeleteTodos'
-import { DisplayTodoBox, LineThroughText } from './DisplayTodos.style'
-import { TextBox } from '../AddTodos/AddTodos.style'
-import { ButtonClearSearch } from './DisplayTodos.style'
+import React, { useState, useEffect } from "react"
+import { useSelector } from "react-redux"
+import { RootState } from "../../store"
+import { Todo } from "../../store/todos/types"
+import { debounce } from "lodash"
+import TodoCheckbox from "../TodoCheckbox/TodoCheckbox"
+import DeleteTodos from "../DeleteTodos/DeleteTodos"
+import { DisplayTodoBox, LineThroughText } from "./DisplayTodos.style"
+import { TextBox } from "../AddTodos/AddTodos.style"
+import { ButtonClearSearch } from "./DisplayTodos.style"
 
 const DisplayTodos = () => {
   const todos = useSelector((state: RootState) => state.todos)
 
-  const [searchTodo, setSearchTodo] = useState('')
+  const [searchTodo, setSearchTodo] = useState("")
 
   const [filteredTodos, setFilteredTodos] = useState<Todo[]>(todos.todos)
 
@@ -20,14 +20,14 @@ const DisplayTodos = () => {
     // Update filteredTodos whenever todos change
     setFilteredTodos(
       todos.todos.filter((todo) =>
-        todo.task.toLowerCase().includes(searchTodo.toLowerCase()),
-      ),
+        todo.task.toLowerCase().includes(searchTodo.toLowerCase())
+      )
     )
-  }, [todos.todos])
+  }, [todos.todos, searchTodo])
 
   const debouncedSearch = debounce((value: string) => {
     const filtered = todos.todos.filter((todo) =>
-      todo.task.toLowerCase().includes(value.toLowerCase()),
+      todo.task.toLowerCase().includes(value.toLowerCase())
     )
     setFilteredTodos(value.length >= 3 ? filtered : todos.todos)
   }, 500)
@@ -39,7 +39,7 @@ const DisplayTodos = () => {
   }
 
   const clearSearch = () => {
-    setSearchTodo('')
+    setSearchTodo("")
     setFilteredTodos(todos.todos)
   }
 

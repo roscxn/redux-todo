@@ -1,4 +1,4 @@
-import { Todo, ADD_TODO, DELETE_TODO, SET_TODO_COMPLETED } from './types'
+import { Todo, ADD_TODO, DELETE_TODO, SET_TODO_COMPLETED } from "./types"
 
 export function addTodo(todo: Todo) {
   return {

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const ButtonDelete = styled.button`
   background-color: #e64d38;
@@ -13,4 +13,4 @@ export const ButtonDelete = styled.button`
     width: 15%;
     font-size: 12px;
   }
-`;
+`

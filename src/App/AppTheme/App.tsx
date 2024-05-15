@@ -1,18 +1,14 @@
-import AddTodos from '../../components/AddTodos/AddTodos'
-import DisplayTodos from '../../components/DisplayTodos/DisplayTodos'
-import { WebTheme, ToDoContainerBackground } from './App.style'
+import Page1 from "../../pages/MobilePg/MobilePg"
+import MobilePg from "../../pages/MobilePg/MobilePg"
+import { Route, Routes } from "react-router-dom" // Import BrowserRouter and Route
 
 function App() {
-    return (
-        <WebTheme>
-            <ToDoContainerBackground>
-                <h1>Todo App</h1>
-                <AddTodos />
-                <br />
-                <DisplayTodos />
-            </ToDoContainerBackground>
-        </WebTheme>
-    )
+  return (
+    <Routes>
+      <Route path="/" element={<MobilePg />} />
+      <Route path="/home" element={<Page1 />} />
+    </Routes>
+  )
 }
 
 export default App
