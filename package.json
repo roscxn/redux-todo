@@ -56,14 +56,17 @@
   },
   "lint-staged": {
     "*.{js,jsx,json,css,scss,md,ts,tsx}": [
+      "echo 'Running Prettier...'",
       "prettier --write",
+      "echo 'Running ESLint...'",
       "eslint --fix",
+      "echo 'Staging files...'",
       "git add"
     ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx lint-staged ."
+      "pre-commit": "lint-staged"
     }
   }
 }
