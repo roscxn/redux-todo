@@ -23,7 +23,7 @@ const DisplayTodos = () => {
         todo.task.toLowerCase().includes(searchTodo.toLowerCase())
       )
     )
-  }, [todos.todos, searchTodo])
+  }, [todos.todos])
 
   const debouncedSearch = debounce((value: string) => {
     const filtered = todos.todos.filter((todo) =>
