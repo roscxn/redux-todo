@@ -9,7 +9,7 @@ const MobileDisplay = () => {
   return (
     <div>
       {todos.todos.length === 0 ? (
-        <h3>No task found </h3>
+        <h3>No task found</h3>
       ) : (
         todos.todos.map((todo: Todo) => (
           <SimpleContainer key={todo.id}>{todo.task}</SimpleContainer>
