@@ -6,6 +6,8 @@ import RestoreIcon from "@mui/icons-material/Restore"
 import FavoriteIcon from "@mui/icons-material/Favorite"
 import LocationOnIcon from "@mui/icons-material/LocationOn"
 
+import { Link } from "react-router-dom"
+
 export default function BottomNav() {
   const [value, setValue] = React.useState(0)
 
@@ -24,8 +26,19 @@ export default function BottomNav() {
           setValue(newValue)
         }}
       >
-        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+        <BottomNavigationAction
+          label="Todos"
+          icon={<RestoreIcon />}
+          component={Link}
+          to="/home"
+        />
+
+        <BottomNavigationAction
+          label="Add New"
+          icon={<FavoriteIcon />}
+          component={Link}
+          to="/addtodo"
+        />
         <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
       </BottomNavigation>
     </Box>

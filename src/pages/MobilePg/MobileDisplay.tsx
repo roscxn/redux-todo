@@ -1,18 +1,27 @@
-import { useSelector } from "react-redux"
-import { RootState } from "../../store"
-import { Todo } from "../../store/todos/types"
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL
+
+import { useEffect, useState } from "react"
+import { TodoMobile } from "../../store/todosMobile/types"
 import SimpleContainer from "../../components/SimpleContainer/SimpleContainer"
 
 const MobileDisplay = () => {
-  const todos = useSelector((state: RootState) => state.todos)
+  const [display, setDisplay] = useState([])
+
+  useEffect(() => {
+    fetch(`${VITE_BACKEND_URL}/api/todos`)
+      .then((response) => response.json())
+      .then((data) => {
+        setDisplay(data)
+      })
+  }, [])
 
   return (
     <div>
-      {todos.todos.length === 0 ? (
+      {display.length === 0 ? (
         <h3>No task found</h3>
       ) : (
-        todos.todos.map((todo: Todo) => (
-          <SimpleContainer key={todo.id}>{todo.task}</SimpleContainer>
+        display.map((todo: TodoMobile) => (
+          <SimpleContainer key={todo._id}>{todo.task}</SimpleContainer>
         ))
       )}
     </div>

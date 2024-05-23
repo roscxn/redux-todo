@@ -1,6 +1,6 @@
 import { createTheme, ThemeProvider } from "@mui/material"
-import BottomNav from "../../components/BottomNav/BottomNav"
-import MenuAppBar from "../../components/AppBar/MenuAppBar"
+import BottomNav from "../../MobileComponents/BottomNav/BottomNav"
+import MenuAppBar from "../../MobileComponents/AppBar/MenuAppBar"
 import MobileDisplay from "./MobileDisplay"
 
 const MobilePg = () => {
