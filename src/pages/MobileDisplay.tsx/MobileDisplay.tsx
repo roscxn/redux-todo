@@ -1,10 +1,14 @@
 const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 
 import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
 import { TodoMobile } from "../../store/todosMobile/types"
 import SimpleContainer from "../../components/SimpleContainer/SimpleContainer"
+import { RootState } from "../../store"
 
 const MobileDisplay = () => {
+  const todos = useSelector((state: RootState) => state.todosMobile)
+
   const [display, setDisplay] = useState([])
 
   useEffect(() => {
@@ -13,7 +17,7 @@ const MobileDisplay = () => {
       .then((data) => {
         setDisplay(data)
       })
-  }, [])
+  }, [todos])
 
   return (
     <div>

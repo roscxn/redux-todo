@@ -1,7 +1,8 @@
 import { createTheme, ThemeProvider } from "@mui/material"
-import BottomNav from "../../MobileComponents/BottomNav/BottomNav"
-import MenuAppBar from "../../MobileComponents/AppBar/MenuAppBar"
-import MobileDisplay from "./MobileDisplay"
+import BottomNav from "../../mobileComponents/BottomNav/BottomNav"
+import MenuAppBar from "../../mobileComponents/AppBar/MenuAppBar"
+import MobileDisplay from "../MobileDisplay.tsx/MobileDisplay"
+import AddTodoForm from "../../mobileComponents/AddTodoForm/AddTodoForm"
 
 const MobilePg = () => {
   const theme = createTheme({
@@ -19,6 +20,7 @@ const MobilePg = () => {
   return (
     <ThemeProvider theme={theme}>
       <MenuAppBar />
+      <AddTodoForm />
       <MobileDisplay />
       <BottomNav />
     </ThemeProvider>

@@ -14,12 +14,12 @@ const SimpleContainer: React.FC<SimpleContainerProps> = ({ children }) => {
       <Container maxWidth="sm">
         <Box
           sx={{
-            borderColor: "primary.main", // Use primary color as border color
-            border: 1, // Set border to 1px solid
-            height: 120,
-            mb: 3, // margin bottom
-            mt: 3, // margin top
-            p: 2, // padding
+            borderColor: "primary.main",
+            border: 1,
+            height: 60,
+            mb: 3,
+            mt: 3,
+            p: 2,
           }}
         >
           {children}

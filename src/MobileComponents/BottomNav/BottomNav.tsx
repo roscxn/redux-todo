@@ -33,12 +33,7 @@ export default function BottomNav() {
           to="/home"
         />
 
-        <BottomNavigationAction
-          label="Add New"
-          icon={<FavoriteIcon />}
-          component={Link}
-          to="/addtodo"
-        />
+        <BottomNavigationAction label="Favorite" icon={<FavoriteIcon />} />
         <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
       </BottomNavigation>
     </Box>
