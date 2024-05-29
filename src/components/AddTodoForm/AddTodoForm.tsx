@@ -1,19 +1,20 @@
-import React, { useState } from "react"
 const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL
+
+import React, { useState } from "react"
+import { useDispatch } from "react-redux"
 
 import Box from "@mui/material/Box"
 import TextField from "@mui/material/TextField"
 import Stack from "@mui/material/Stack"
 import Button from "@mui/material/Button"
+
+import { addTodo } from "../../store/todos/actions"
 import {
-  ErrorSubmitMessage,
   SuccessSubmitMessage,
-} from "../../components/AddTodos/AddTodos.style"
+  ErrorSubmitMessage,
+} from "../MessageColourStatus/MessageColourStatus"
 
-import { useDispatch } from "react-redux"
-import { addTodoMobile } from "../../store/todosMobile/actions"
-
-const AddTodoForm = () => {
+const AddTodosForm = () => {
   const initialFormData = {
     task: "",
   }
@@ -59,7 +60,7 @@ const AddTodoForm = () => {
 
       if (response.ok) {
         dispatch(
-          addTodoMobile({
+          addTodo({
             _id: "",
             task: newTodoData.toString(),
             completed: false,
@@ -84,21 +85,22 @@ const AddTodoForm = () => {
         component="form"
         onSubmit={handleAddTask}
         sx={{
-          "& > :not(style)": { m: 1, width: "25ch" },
+          "& > :not(style)": { m: 1, width: "100%" },
         }}
         noValidate
         autoComplete="off"
       >
-        <TextField
-          id="outlined-basic"
-          label="Add Todo"
-          variant="outlined"
-          name="task"
-          value={newTodoData.task}
-          onChange={handleTaskInputChange}
-        />
-
         <Stack spacing={2} direction="row">
+          <TextField
+            id="outlined-basic"
+            label="Add Todo"
+            variant="outlined"
+            name="task"
+            value={newTodoData.task}
+            onChange={handleTaskInputChange}
+            sx={{ width: "70%" }}
+          />
+
           <Button type="submit" variant="contained">
             Submit
           </Button>
@@ -114,4 +116,4 @@ const AddTodoForm = () => {
   )
 }
 
-export default AddTodoForm
+export default AddTodosForm
