@@ -1,23 +1,12 @@
 import { Route, Routes } from "react-router-dom"
-import { createTheme, ThemeProvider } from "@mui/material"
+import { ThemeProvider } from "@mui/material"
+import { theme } from "../store/theme/theme"
 
 import BottomNav from "../components/BottomNav/BottomNav"
 import MenuAppBar from "../components/MenuAppBar/MenuAppBar"
-import TodoPage from "../pages/TodoPage/TodoPage"
+import TodoPage from "../features/TodoPage/TodoPage"
 
 function App() {
-  const theme = createTheme({
-    breakpoints: {
-      values: {
-        xs: 0,
-        sm: 600,
-        md: 900,
-        lg: 1200,
-        xl: 1536,
-      },
-    },
-  })
-
   return (
     <ThemeProvider theme={theme}>
       <MenuAppBar />

@@ -23,6 +23,7 @@ export default function BottomNav() {
         showLabels
         value={value}
         onChange={(event, newValue) => {
+          event.preventDefault()
           setValue(newValue)
         }}
       >

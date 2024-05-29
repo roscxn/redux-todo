@@ -3,7 +3,7 @@ const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { Todo } from "../../store/todos/types"
-import SimpleContainer from "../SimpleContainer/SimpleContainer"
+import SimpleContainer from "../../components/SimpleContainer/SimpleContainer"
 import { RootState } from "../../store"
 
 const DisplayTodos = () => {
@@ -12,7 +12,7 @@ const DisplayTodos = () => {
   const [display, setDisplay] = useState([])
 
   useEffect(() => {
-    fetch(`${VITE_BACKEND_URL}/api/todos`)
+    fetch(`${VITE_BACKEND_URL}/api/v1/todos`)
       .then((response) => response.json())
       .then((data) => {
         setDisplay(data)

@@ -12,7 +12,7 @@ import { addTodo } from "../../store/todos/actions"
 import {
   SuccessSubmitMessage,
   ErrorSubmitMessage,
-} from "../MessageColourStatus/MessageColourStatus"
+} from "../../components/MessageStatus/MessageStatus"
 
 const AddTodosForm = () => {
   const initialFormData = {
@@ -50,7 +50,7 @@ const AddTodosForm = () => {
       return
     }
     try {
-      const response = await fetch(`${VITE_BACKEND_URL}/api/todos/add`, {
+      const response = await fetch(`${VITE_BACKEND_URL}/api/v1/todos/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
