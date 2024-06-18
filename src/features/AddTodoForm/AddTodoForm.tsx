@@ -20,7 +20,6 @@ const AddTodosForm = () => {
   }
 
   const [newTodoData, setNewTodoData] = useState(initialFormData)
-
   const [submitMessage, setSubmitMessage] = useState("")
   const [addSuccess, setAddSuccess] = useState(false)
 
@@ -50,7 +49,7 @@ const AddTodosForm = () => {
       return
     }
     try {
-      const response = await fetch(`${VITE_BACKEND_URL}/api/v1/todos/add`, {
+      const response = await fetch(`${VITE_BACKEND_URL}/api/v1/todos`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -64,6 +63,7 @@ const AddTodosForm = () => {
             _id: "",
             task: newTodoData.toString(),
             completed: false,
+            createdAt: "",
           })
         )
         setNewTodoData(initialFormData)
