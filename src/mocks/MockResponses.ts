@@ -1,16 +1,16 @@
 // first
 
-export const mockGetUsersList = {
+export const mockGetGoalsList = {
   data: [
     {
-      id: 1,
-      fullName: "Username0",
-      numberOfTasks: 3,
+      _id: 1,
+      goal: "Lose 10kg",
+      deadline: new Date("2024-08-03"),
     },
     {
-      id: 2,
-      fullName: "Username1",
-      numberOfTasks: 4,
+      _id: 2,
+      goal: "Score 100 marks in English test",
+      deadline: new Date("2024-09-05"),
     },
   ],
 }

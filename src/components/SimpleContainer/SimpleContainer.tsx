@@ -16,9 +16,9 @@ const SimpleContainer: React.FC<SimpleContainerProps> = ({ children }) => {
           sx={{
             borderColor: "primary.main",
             border: 1,
-            height: 60,
+            height: 100,
             mb: 3,
-            mt: 3,
+            mt: 2,
             p: 2,
           }}
         >

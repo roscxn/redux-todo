@@ -85,7 +85,7 @@ const AddTodosForm = () => {
         component="form"
         onSubmit={handleAddTask}
         sx={{
-          "& > :not(style)": { m: 1, width: "100%" },
+          "& > :not(style)": { m: 2, width: "90%" },
         }}
         noValidate
         autoComplete="off"

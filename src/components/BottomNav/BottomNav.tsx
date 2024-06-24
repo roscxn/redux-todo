@@ -2,19 +2,18 @@ import * as React from "react"
 import Box from "@mui/material/Box"
 import BottomNavigation from "@mui/material/BottomNavigation"
 import BottomNavigationAction from "@mui/material/BottomNavigationAction"
-import RestoreIcon from "@mui/icons-material/Restore"
-import FavoriteIcon from "@mui/icons-material/Favorite"
-import LocationOnIcon from "@mui/icons-material/LocationOn"
-
-import { Link } from "react-router-dom"
+import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd"
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents"
+import { useNavigate } from "react-router-dom"
 
 export default function BottomNav() {
-  const [value, setValue] = React.useState(0)
+  const [value, setValue] = React.useState("Todos")
+  const navigate = useNavigate()
 
   return (
     <Box
       sx={{
-        width: "100%", // Full width for mobile screens
+        width: "100%",
         position: "fixed",
         bottom: 0,
       }}
@@ -22,20 +21,26 @@ export default function BottomNav() {
       <BottomNavigation
         showLabels
         value={value}
-        onChange={(event, newValue) => {
-          event.preventDefault()
-          setValue(newValue)
-        }}
+        onChange={(event, newValue) => setValue(newValue)}
       >
         <BottomNavigationAction
           label="Todos"
-          icon={<RestoreIcon />}
-          component={Link}
-          to="/home"
+          icon={<PlaylistAddIcon />}
+          value="todos"
+          onClick={() => {
+            setValue("todos")
+            navigate("/")
+          }}
         />
-
-        <BottomNavigationAction label="Favorite" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+        <BottomNavigationAction
+          label="Goals"
+          icon={<EmojiEventsIcon />}
+          value="goals"
+          onClick={() => {
+            setValue("goals")
+            navigate("/goals")
+          }}
+        />
       </BottomNavigation>
     </Box>
   )

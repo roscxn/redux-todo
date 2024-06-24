@@ -65,7 +65,7 @@ export default function MenuAppBar() {
           </div>
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Qualifly
+            Todo App
           </Typography>
           <div>
             <IconButton

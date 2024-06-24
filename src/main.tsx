@@ -4,6 +4,8 @@ import { Provider } from "react-redux"
 import { BrowserRouter as Router } from "react-router-dom"
 import store from "./store/index.ts"
 import App from "./App/App.tsx"
+import AppRouter from "./routes/app-router/index.tsx"
+
 import "@fontsource/roboto/300.css"
 import "@fontsource/roboto/400.css"
 import "@fontsource/roboto/500.css"
@@ -25,6 +27,7 @@ enableMocking().then(() => {
       <Router>
         <Provider store={store}>
           <App />
+          <AppRouter />
         </Provider>
       </Router>
     </React.StrictMode>

@@ -1,9 +1,11 @@
 import { combineReducers } from "redux"
 import { configureStore } from "@reduxjs/toolkit"
 import { todosReducer } from "./todos/reducers"
+import { goalsReducer } from "./goals/reducers"
 
 const rootReducer = combineReducers({
   todos: todosReducer,
+  goals: goalsReducer,
 })
 
 const store = configureStore({

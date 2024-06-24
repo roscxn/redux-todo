@@ -1,5 +1,5 @@
-export interface usersList {
-  id: number
-  fullName: string
-  numberOfTasks: number
+export interface Goal {
+  _id: string
+  goal: string
+  deadline: string
 }
